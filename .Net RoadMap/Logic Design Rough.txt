@@ -1,0 +1,25 @@
+deletetask
+
+if
+sab sa pehla list check krenga k ha ya nai ? agr nai toh boldenga list is empty
+else 
+remove kardengay id k through list ma match kar kay using Linq
+
+
+
+Zabardast — bilkul sahi soch rahe ho 👏
+
+Agar tumhe **ID match karke delete** karna hai, to list me ye kaam karne ke liye:
+
+👉 Pehle **wo task find** karna hoga jiska `Id` match karta hai 
+(for example using `Find()` ya `FirstOrDefault()`).
+👉 Phir **`tasks.Remove()`** use karna hoga us specific object ko
+ list se hataane ke liye.
+
+Bas ye 2 steps karne hain —
+
+1. Task ko ID se dhoondhna
+2. Mil jaaye to `Remove()` se delete kar dena ✅
+
+
+var result = listName.Find(item => item.Property == value);
