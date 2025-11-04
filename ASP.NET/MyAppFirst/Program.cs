@@ -252,65 +252,126 @@
 //}
 
 
-//==============================================Project 4: To-Do List Application (CLI) ============================================================
-
+//============================================== Student Details ToString() Method =============================================
 // object ko string ma convert karna ka tarika hai ToString() method ka use karna.
 // Ye method har object ke liye available hota hai kyunki ye System.Object class se inherit hota hai.
 // Jab aap ToString() method ko call karte hain, to wo object ki string representation return karta hai.
 
+//using System;
+//public class StudentDetails
+//{
+//    public int Id { get; set; }
+//    public string Name { get; set; }
+//    public int Age { get; set; }
 
-//using System.Runtime.CompilerServices;
+//    //public StudentDetails(int id, string name, int age)
+//    //{
+//    //    Id = id;
+//    //    Name = name;
+//    //    Age = age;
+//    //}
 
-//public class TaskItem
-//{ 
-//       public int Id { get; set; }
-//       public string Description { get; set; }
-//       public bool IsCompleted { get; set; }
-
-
-//    public TaskItem(int id, string description)
+//    public override string ToString()
 //    {
-//        Id = id;
-//        Description = description;
-//        IsCompleted = false;
+//        return $"ID: {Id}, Name: {Name}, Age: {Age}";
 //    }
 
 
-//    public void MarkAsCompleted()
+//    static void Main(string[] args)
 //    {
-//         IsCompleted = true;
+//        StudentDetails student = new StudentDetails();
+//        student.Id = 1;
+//        student.Name = "John Doe";
+//        student.Age = 20;
+
+
+//        string displayDeatils = student.ToString();
+//        Console.WriteLine(displayDeatils);
 //    }
 //}
 
+
+
+
+//==============================================Project 4: To-Do List Application (CLI) ============================================================
+
+using System.Runtime.CompilerServices;
 using System;
-public class  StudentDetails
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+
+public class TaskItem
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public int Age { get; set; }
+    public string Description { get; set; }
+    public bool IsCompleted { get; set; }
 
-    //public StudentDetails(int id, string name, int age)
-    //{
-    //    Id = id;
-    //    Name = name;
-    //    Age = age;
-    //}
 
-    public override string ToString()
+    public TaskItem(int id, string description)
     {
-        return $"ID: {Id}, Name: {Name}, Age: {Age}";
+        Id = id;
+        Description = description;
+        IsCompleted = false;
     }
 
 
-    static void Main(string[] args)
+    public void MarkAsCompleted()
     {
-        StudentDetails student = new StudentDetails();
-        student.Id = 1;
-        student.Name = "John Doe";
-        student.Age = 20;
-
-
-       string displayDeatils =  student.ToString();
-       Console.WriteLine(displayDeatils);
+        IsCompleted = true;
     }
+}
+
+public class ToDoList
+{ 
+    private List<TaskItem> tasks = new List<TaskItem>();
+    private int nextId = 1;
+
+    public void AddTask(string description)
+    {
+        TaskItem newTask = new TaskItem(nextId++, description);
+        tasks.Add(newTask);
+        Console.WriteLine($"Task added: {newTask.Description} (ID: {newTask.Id})");
+    }
+
+    public void ViewTasks()
+    {
+        if(tasks.Count == 0)
+        {
+            Console.WriteLine("No tasks in the to-do list.");
+            return;
+        }
+        else
+        {
+            foreach (TaskItem task in tasks)
+            {
+                Console.WriteLine($"ID: {task.Id}, Description: {task.Description}, Status: {task.IsCompleted}");
+            }
+        }
+
+        
+    }
+
+    public void DeleteTask(int id)
+    {
+        if(tasks.Count == 0)
+        {
+            Console.WriteLine("No tasks in the to-do list.");
+            return;
+        }
+        else 
+        {
+            var taskToDelete = tasks.Find(t => t.Id == id);
+            if (taskToDelete != null)
+            {
+                tasks.Remove(taskToDelete);
+                Console.WriteLine($"Task with ID {id} deleted.");
+            }
+            else
+            {
+                Console.WriteLine($"Task with ID {id} not found.");
+            }
+        }
+    }
+
 }

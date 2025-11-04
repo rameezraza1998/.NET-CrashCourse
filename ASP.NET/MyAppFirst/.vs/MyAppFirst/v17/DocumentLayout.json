@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\.NET-CrashCourse\\ASP.NET\\MyAppFirst\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E23D1781-F2A2-5103-1176-5FA7B6D3412E}|MyAppFirst.csproj|d:\\.net-crashcourse\\asp.net\\myappfirst\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E23D1781-F2A2-5103-1176-5FA7B6D3412E}|MyAppFirst.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\.NET-CrashCourse\\ASP.NET\\MyAppFirst\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\.NET-CrashCourse\\ASP.NET\\MyAppFirst\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAGwBAAAAAAAAAAAmwHcBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-04T15:32:13.009Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

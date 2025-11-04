@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ASP.NET\\MyAppFirst\\MyAppFirst.csproj",
+      "projectUniqueName": "D:\\.NET-CrashCourse\\ASP.NET\\MyAppFirst\\MyAppFirst.csproj",
       "projectName": "MyAppFirst",
-      "projectPath": "D:\\ASP.NET\\MyAppFirst\\MyAppFirst.csproj",
+      "projectPath": "D:\\.NET-CrashCourse\\ASP.NET\\MyAppFirst\\MyAppFirst.csproj",
       "packagesPath": "C:\\Users\\ALI\\.nuget\\packages\\",
-      "outputPath": "D:\\ASP.NET\\MyAppFirst\\obj\\",
+      "outputPath": "D:\\.NET-CrashCourse\\ASP.NET\\MyAppFirst\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
