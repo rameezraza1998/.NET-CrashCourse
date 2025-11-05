@@ -323,7 +323,7 @@ public class TaskItem
 }
 
 public class ToDoList
-{ 
+{
     private List<TaskItem> tasks = new List<TaskItem>();
     private int nextId = 1;
 
@@ -336,7 +336,7 @@ public class ToDoList
 
     public void ViewTasks()
     {
-        if(tasks.Count == 0)
+        if (tasks.Count == 0)
         {
             Console.WriteLine("No tasks in the to-do list.");
             return;
@@ -349,28 +349,134 @@ public class ToDoList
             }
         }
 
-        
+
     }
 
     public void DeleteTask(int id)
     {
-        if(tasks.Count == 0)
+        if (tasks.Count == 0)
         {
             Console.WriteLine("No tasks in the to-do list.");
             return;
         }
-        else 
+        else
         {
             var taskToDelete = tasks.Find(t => t.Id == id);
             if (taskToDelete != null)
             {
                 tasks.Remove(taskToDelete);
                 Console.WriteLine($"Task with ID {id} deleted.");
+                return;
             }
             else
             {
                 Console.WriteLine($"Task with ID {id} not found.");
             }
+        }
+    }
+
+    public void MarkTaskAsDone(int id)
+    {
+        if (tasks.Count == 0)
+        {
+            Console.WriteLine("No tasks in the to-do list.");
+            return;
+        }
+        else
+        {
+            var taskToMark = tasks.Find(t => t.Id == id);
+            if (taskToMark != null)
+            {
+                taskToMark.MarkAsCompleted();
+                Console.WriteLine($"Task with ID {id} marked as completed.");
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Task with ID {id} not found.");
+
+            }
+        }
+
+    }
+
+    public void PendingTasks()
+    { 
+        var result = tasks.Where(t => t.IsCompleted == false).ToList();
+        if(result.Count() == 0)
+        {
+            Console.WriteLine("No pending tasks in the to-do list.");
+            return;
+        }
+        else
+        {
+            foreach (var task in result)
+            {
+                Console.WriteLine($"ID: {task.Id}, Description: {task.Description}, Status: {task.IsCompleted}");
+            }
+        }
+    }
+
+}
+class Program
+{     
+     ToDoList toDoList = new ToDoList();
+    bool exit = false;
+    void DisplayMenu()
+    {
+        Console.WriteLine("\n=== To-Do List Menu ===");
+        Console.WriteLine("1. Add Task");
+        Console.WriteLine("2. View Tasks");
+        Console.WriteLine("3. Delete Task");
+        Console.WriteLine("4. Mark Task as Done");
+        Console.WriteLine("5. View Pending Tasks");
+        Console.WriteLine("6. Exit");
+        Console.WriteLine("=======================");
+        Console.Write("Choose an option (1-6): ");
+        string choice = Console.ReadLine();
+
+        switch (choice)
+        {
+            case "1":
+                Console.Write("Enter task description: ");
+                string description = Console.ReadLine();
+                toDoList.AddTask(description);
+                break;
+            case "2":
+                toDoList.ViewTasks();
+                break;
+            case "3":
+                Console.Write("Enter task ID to delete: ");
+                int deleteId = Convert.ToInt32(Console.ReadLine());
+                toDoList.DeleteTask(deleteId);
+                break;
+            case "4":
+                Console.Write("Enter task ID to mark as done: ");
+                int doneId = Convert.ToInt32(Console.ReadLine());
+                toDoList.MarkTaskAsDone(doneId);
+                break;
+            case "5":
+                toDoList.PendingTasks();
+                break;
+            case "6":
+                exit = true;
+                Console.WriteLine("Exiting To-Do List Application...");
+                break;
+            default:
+                Console.WriteLine("Invalid choice! Please select a valid option.");
+                break;
+        }
+    }
+
+
+    // ✅ Main method added here
+    static void Main(string[] args)
+    {
+        Program program = new Program();
+
+        while (!program.exit)
+        {
+            program.DisplayMenu();
         }
     }
 
