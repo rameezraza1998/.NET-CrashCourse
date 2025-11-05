@@ -1,7 +1,0 @@
-AddTask Done
-ViewTask Done
-DeleteTask Done
-
-PendingTask 
-
-MarkTaskDone
